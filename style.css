@@ -5,6 +5,16 @@
 
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+}
+
+.square-container {
+    border: 1px solid black;
+    min-width: 500px;
+    min-height: 500px;
+}
+
+.square {
+    border: 1px black;
 }
