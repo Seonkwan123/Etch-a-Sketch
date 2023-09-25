@@ -8,20 +8,30 @@ html, body {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: #F9F5F5;
     gap: 50px;
 }
 
-.square-container {
+h1 {
+    text-align: center;
+    font-size: 70px;
+}
+
+.content {
+    display: flex;
+    justify-content: start;
+    gap: 50px;
+    max-width: 1000px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.grid {
     border: 1px solid black;
     min-width: 500px;
     min-height: 500px;
-}
-
-.square {
-    border: 1px black;
 }
