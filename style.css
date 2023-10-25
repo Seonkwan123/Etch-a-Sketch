@@ -21,7 +21,7 @@ h1 {
 .content {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
     gap: 30px;
 }
@@ -29,7 +29,11 @@ h1 {
 .buttons{
     display: flex;
     flex-direction: column;
-    
+    justify-content: space-evenly;
+}
+
+.buttons button {
+    flex-basis: auto;
 }
 
 .grid {
