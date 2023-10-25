@@ -41,6 +41,12 @@ h1 {
     width: 100%;
 }
 
+.grid-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .grid {
     display: grid;
 border: 1px solid black;
