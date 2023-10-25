@@ -20,20 +20,25 @@ h1 {
 
 .content {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     /* align-items: center; */
     width: 100%;
-    gap: 30px;
+    gap: 150px;
 }
 
 .buttons{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .buttons button {
-    flex-basis: auto;
+    font-size: medium;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding:8px 15px;
+    width: 100%;
 }
 
 .grid {
