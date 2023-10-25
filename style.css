@@ -14,14 +14,16 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 70px;
+    font-size: 80px;
+    margin: 40px;
 }
 
 .content {
     display: flex;
-    justify-content: start;
-    gap: 50px;
-    max-width: 1000px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
 }
 
 .buttons{
@@ -31,7 +33,13 @@ h1 {
 }
 
 .grid {
-    border: 1px solid black;
-    min-width: 500px;
-    min-height: 500px;
+    display: grid;
+border: 1px solid black;
+height: 500px;
+width: 500px;
+}
+
+.place-holder {
+    width: 100px;
+    height: 100px;
 }
