@@ -98,13 +98,14 @@ input[type = "range"] {
     font-weight: bold;
 }
 
-.grid {
+.grid-box {
     display: grid;
 border: 1px solid black;
 box-shadow: 10px 10px 5px grey;
 height: 500px;
 width: 500px;
 }
+
 
 .place-holder {
     width: 100px;
