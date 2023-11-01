@@ -1,4 +1,6 @@
-* {
+*, 
+*::before, 
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,7 +28,8 @@ h1 {
     gap: 60px;
 }
 
-.buttons, .place-holder{
+.buttons, 
+.place-holder{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -41,6 +44,16 @@ h1 {
     padding:8px 15px;
     width: 100%;
 }
+
+.buttons > button:checked {
+    background-color: chocolate;
+}
+
+.buttons > button:hover,
+input[type ="color"]:hover {
+transform: scale(1.07);
+}
+
 
 .buttons > div {
     font-size: medium;
@@ -88,6 +101,7 @@ input[type = "range"] {
 .grid {
     display: grid;
 border: 1px solid black;
+box-shadow: 10px 10px 5px grey;
 height: 500px;
 width: 500px;
 }
