@@ -3,8 +3,8 @@ let slider = document.querySelector("input[type='range'")
 let sliderValue = slider.value
 let sliderLabel = document.querySelector('label')
 let gridBox = document.querySelector('.grid-box')
-let grid = document.createElement('div');
-grid.className = 'grid'
+// initially invoke function to generate div inside grid
+createGrid();
 // Add inline style to change slider label text and gridbox size 
 sliderLabel.innerText = `${sliderValue} x ${sliderValue}`
 gridBox.style.gridTemplateColumns = `repeat(${sliderValue}, 1fr)`
@@ -15,6 +15,8 @@ slider.addEventListener('input', createGrid)
 function createGrid () {
 sliderValue = slider.value
 for(let i = 0; i < (sliderValue ** 2); i++){
+    let grid = document.createElement('div');
+    grid.className = 'grid'
     gridBox.appendChild(grid);
     sliderLabel.innerText = `${sliderValue} x ${sliderValue}`
     gridBox.style.gridTemplateColumns = `repeat(${sliderValue}, 1fr)`
@@ -22,11 +24,10 @@ for(let i = 0; i < (sliderValue ** 2); i++){
     }
 }
 
+
 // Select color buttons
 let colorSelector = document.querySelector('#color-selector');
-let color = colorSelector.value;
-// Write a function where selected color changes when clicked
-function changeColor () {
-
+grid.addEventListener('click', sketchColor)
+function sketchColor () {
+    grid.style.color = colorSelector.value;
 }
-// Write another function where when hold click, the grid changes from white to that color

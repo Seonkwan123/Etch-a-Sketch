@@ -99,11 +99,11 @@ input[type = "range"] {
 }
 
 .grid-box {
-    display: grid;
+display: grid;
 border: 1px solid black;
 box-shadow: 10px 10px 5px grey;
-height: 500px;
-width: 500px;
+min-height: 500px;
+min-width: 500px;
 }
 
 .place-holder {
