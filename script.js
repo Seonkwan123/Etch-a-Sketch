@@ -3,12 +3,6 @@ const sliderLabel = document.querySelector('label')
 const gridBox = document.querySelector('.grid-box')
 const colorSelector = document.querySelector('#color-selector');
 
-// Add inline style to change slider label text and gridbox size 
-// let sliderValue = slider.value
-// sliderLabel.innerText = `${sliderValue} x ${sliderValue}`
-// gridBox.style.gridTemplateColumns = `repeat(${sliderValue}, 1fr)`
-// gridBox.style.gridTemplateRows = `repeat(${sliderValue}, 1fr)`
-
 // initially invoke function to generate div inside grid
 createGrid();
 
@@ -16,9 +10,16 @@ createGrid();
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true;}
 document.body.onmouseup = () => mouseDown = false;
+slider.onmousemove = () => updateSliderLabel()
 
+
+function updateSliderLabel () {
+    let sliderValue = slider.value
+    sliderLabel.innerText = `${sliderValue} x ${sliderValue}`
+
+}
 // This eventListener changes grid slize and slider label when slider is used.
-slider.addEventListener('input', createGrid)
+slider.addEventListener('change', createGrid)
 // Function will create a size of the grid of the user input
 function createGrid () {
 let sliderValue = slider.value
@@ -36,6 +37,6 @@ for(let i = 0; i < (sliderValue ** 2); i++){
 
 function draw (e) {
     if (mouseDown === true && e.type == 'mouseover') {
-        e.target.style.backgroundColor = colorSelector.value;
+        this.style.backgroundColor = colorSelector.value;
     }
 }
