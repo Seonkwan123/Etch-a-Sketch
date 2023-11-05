@@ -11,30 +11,35 @@ document.body.onmousedown = () => {mouseDown = true;}
 document.body.onmouseup = () => mouseDown = false;
 slider.onmousemove = () => updateSliderLabel();
 
+
 let selectedButton;
 const buttons = document.querySelectorAll('button')
 buttons.forEach(button => {
     button.addEventListener('click', e => {
     selectedButton = e.target.className;
+    if (selectedButton === 'clear-button') {
+        clearGrid();
+    }
     })
 })
 
-// create function for identifying which button has been selected.
-function colorGrid (){
-
-
+function clearGrid () {
+    let gridElements = document.querySelectorAll('.grid-element');
+    gridElements.forEach(element => {
+        element.style.background = 'none';
+    })
 }
 
 
 function updateSliderLabel () {
-    let sliderValue = slider.value
-    sliderLabel.innerText = `${sliderValue} x ${sliderValue}`
-
+    let sliderValue = slider.value;
+    sliderLabel.innerText = `${sliderValue} x ${sliderValue}`;
 }
 // This eventListener changes grid slize and slider label when slider is used.
 slider.addEventListener('change', createGrid)
 // Function will create a size of the grid of the user input
 function createGrid () {
+clearGrid();
 let sliderValue = slider.value
 sliderLabel.innerText = `${sliderValue} x ${sliderValue}`
 gridBox.style.gridTemplateColumns = `repeat(${sliderValue}, 1fr)`
@@ -49,6 +54,8 @@ for(let i = 0; i < (sliderValue ** 2); i++){
 }
 
 function draw (e) {
-    if (!mouseDown && e.type == 'mouseover')  return{
-    }
+    if (!mouseDown)  return;
+    else if (selectedButton === 'color-button') {
+        e.target.style.background = colorSelector.value;
+    } 
 }
