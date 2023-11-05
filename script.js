@@ -11,14 +11,15 @@ document.body.onmousedown = () => {mouseDown = true;}
 document.body.onmouseup = () => mouseDown = false;
 slider.onmousemove = () => updateSliderLabel();
 
-
-let selectedButton;
+let defaultSelectedButton = document.querySelector('.color-button').className;
+let selectedButton = defaultSelectedButton;
 const buttons = document.querySelectorAll('button')
 buttons.forEach(button => {
     button.addEventListener('click', e => {
     selectedButton = e.target.className;
     if (selectedButton === 'clear-button') {
         clearGrid();
+        selectedButton = defaultSelectedButton;
     }
     })
 })
