@@ -2,7 +2,6 @@ const slider = document.querySelector("input[type='range'")
 const sliderLabel = document.querySelector('label')
 const gridBox = document.querySelector('.grid-box')
 const colorSelector = document.querySelector('#color-selector');
-
 // initially invoke function to generate div inside grid
 createGrid();
 
@@ -10,7 +9,21 @@ createGrid();
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true;}
 document.body.onmouseup = () => mouseDown = false;
-slider.onmousemove = () => updateSliderLabel()
+slider.onmousemove = () => updateSliderLabel();
+
+let selectedButton;
+const buttons = document.querySelectorAll('button')
+buttons.forEach(button => {
+    button.addEventListener('click', e => {
+    selectedButton = e.target.className;
+    })
+})
+
+// create function for identifying which button has been selected.
+function colorGrid (){
+
+
+}
 
 
 function updateSliderLabel () {
@@ -36,7 +49,6 @@ for(let i = 0; i < (sliderValue ** 2); i++){
 }
 
 function draw (e) {
-    if (mouseDown === true && e.type == 'mouseover') {
-        this.style.backgroundColor = colorSelector.value;
+    if (!mouseDown && e.type == 'mouseover')  return{
     }
 }

@@ -45,10 +45,6 @@ h1 {
     width: 100%;
 }
 
-.buttons > button:checked {
-    background-color: chocolate;
-}
-
 .buttons > button:hover,
 input[type ="color"]:hover {
 transform: scale(1.07);
