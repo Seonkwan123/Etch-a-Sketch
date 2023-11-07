@@ -58,5 +58,8 @@ function draw (e) {
     if (!mouseDown)  return;
     else if (selectedButton === 'color-button') {
         e.target.style.background = colorSelector.value;
-    } 
+    } else if(selectedButton === 'rainbow-button') {
+        hexCode ='#' + Math.random().toString(16).substring(2,8);
+        e.target.style.background = hexCode;
+}
 }
