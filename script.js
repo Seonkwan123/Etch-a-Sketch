@@ -25,17 +25,37 @@ let defaultSelectedButton = document.querySelector('.color-button').className;
 let selectedButton = defaultSelectedButton;
 
 
-function selectButton (button) {
-    if (button === 'color-button') {
-    selectedButton = button;
+function selectButton (className) {
+    if (className === 'color-button') {
+    selectedButton = className;
+    addClassActive(className);
     }
-    else if (button === 'rainbow-button') {
-        selectedButton = button;
-    } else if (button === 'clear-button') {
-        clearGrid();
-    } else if (button ==='eraser-button') {
-        selectedButton = button;
-        console.log(button)
+    else if (className === 'rainbow-button') {
+    selectedButton = className;
+    addClassActive(className);
+    } else if (className === 'clear-button') {
+    clearGrid();
+    } else if (className ==='eraser-button') {
+    selectedButton = className;
+    addClassActive(className);
+    }
+}
+
+function addClassActive (className) {
+    if (className === 'color-button') {
+        colorButton.classList.add('active')
+        rainbowButton.classList.remove('active')
+        eraserButton.classList.remove('active')
+    }
+    else if (className === 'rainbow-button') {
+        colorButton.classList.remove('active')
+        rainbowButton.classList.add('active')
+        eraserButton.classList.remove('active')
+    } 
+     else if (className ==='eraser-button') {
+        colorButton.classList.remove('active')
+        rainbowButton.classList.remove('active')
+        eraserButton.classList.add('active')
     }
 }
 

@@ -45,6 +45,10 @@ h1 {
     width: 100%;
 }
 
+.buttons > button.active {
+    background-color: blueviolet;
+}
+
 .buttons > button:hover,
 input[type ="color"]:hover {
 transform: scale(1.07);
