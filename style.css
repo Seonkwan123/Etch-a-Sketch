@@ -34,7 +34,7 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    flex-basis: 175px;
+    min-width: 175px;
 }
 
 .buttons > button {
@@ -46,7 +46,7 @@ h1 {
 }
 
 .buttons > button.active {
-    background-color: blueviolet;
+    background-color: grey;
 }
 
 .buttons > button:hover,
@@ -109,4 +109,53 @@ min-width: 500px;
 .place-holder {
     width: 100px;
     height: 100px;
+}
+
+@media (max-width: 1000px) {
+    .place-holder {
+        display: none;
+    }
+    .content {
+        justify-content: center;
+        gap: 30px;
+    }
+}
+
+@media all and (max-width: 770px) {
+    .grid-box{
+        min-width: 400px;
+        min-height: 400px;
+        margin: none;
+    }
+    .buttons {
+        min-width: 100px;
+    }
+}
+
+@media all and (max-width: 650px) {
+    *{
+        overflow: auto;
+    }
+    
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttons {
+        gap: 20px;
+    }
+    .buttons > button,
+    .buttons > div {
+        min-width: 175px;
+    }
+    h1 {
+        font-size: 40px;
+        margin: 20px 0;
+    }
+    .grid-box{
+        min-width: 375px;
+        min-height: 375px;
+        margin: none;
+    }
+
 }
