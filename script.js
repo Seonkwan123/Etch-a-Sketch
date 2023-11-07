@@ -11,18 +11,33 @@ document.body.onmousedown = () => {mouseDown = true;}
 document.body.onmouseup = () => mouseDown = false;
 slider.onmousemove = () => updateSliderLabel();
 
+const colorButton = document.querySelector('.color-button');
+const rainbowButton = document.querySelector('.rainbow-button');
+const eraserButton = document.querySelector('.eraser-button');
+const clearButton = document.querySelector('.clear-button');
+
+colorButton.onclick = (e) => selectButton(e.target.className)
+rainbowButton.onclick = (e) => selectButton(e.target.className)
+eraserButton.onclick = (e) => selectButton(e.target.className)
+clearButton.onclick = (e) => selectButton(e.target.className)
+
 let defaultSelectedButton = document.querySelector('.color-button').className;
 let selectedButton = defaultSelectedButton;
-const buttons = document.querySelectorAll('button')
-buttons.forEach(button => {
-    button.addEventListener('click', e => {
-    selectedButton = e.target.className;
-    if (selectedButton === 'clear-button') {
-        clearGrid();
-        selectedButton = defaultSelectedButton;
+
+
+function selectButton (button) {
+    if (button === 'color-button') {
+    selectedButton = button;
     }
-    })
-})
+    else if (button === 'rainbow-button') {
+        selectedButton = button;
+    } else if (button === 'clear-button') {
+        clearGrid();
+    } else if (button ==='eraser-button') {
+        selectedButton = button;
+        console.log(button)
+    }
+}
 
 function clearGrid () {
     let gridElements = document.querySelectorAll('.grid-element');
@@ -61,5 +76,7 @@ function draw (e) {
     } else if(selectedButton === 'rainbow-button') {
         hexCode ='#' + Math.random().toString(16).substring(2,8);
         e.target.style.background = hexCode;
-}
+    } else if (selectedButton === 'eraser-button') {
+        e.target.style.background = 'none'; 
+    }
 }
