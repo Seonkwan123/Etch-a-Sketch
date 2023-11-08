@@ -132,14 +132,11 @@ min-width: 500px;
     }
 }
 
-@media all and (max-width: 650px) {
-    *{
-        overflow: auto;
-    }
-    
+@media all and (max-width: 650px) {    
     .content {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 60px;
     }
     .buttons {
         gap: 20px;
@@ -156,6 +153,7 @@ min-width: 500px;
         min-width: 375px;
         min-height: 375px;
         margin: none;
+        margin-bottom: 50px;
     }
 
 }
