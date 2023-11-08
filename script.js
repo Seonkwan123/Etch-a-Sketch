@@ -21,8 +21,9 @@ rainbowButton.onclick = (e) => selectButton(e.target.className)
 eraserButton.onclick = (e) => selectButton(e.target.className)
 clearButton.onclick = (e) => selectButton(e.target.className)
 
-let defaultSelectedButton = document.querySelector('.color-button').className;
+let defaultSelectedButton = colorButton.className;
 let selectedButton = defaultSelectedButton;
+colorButton.classList.add('active') //default to select color button. This was done after do make sure that selectedButton is class name without active.
 
 
 function selectButton (className) {
