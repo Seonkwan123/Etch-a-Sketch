@@ -39,19 +39,20 @@ h1 {
 
 .buttons > button {
     font-size: medium;
-    border: 1px solid grey;
-    border-radius: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
     padding:8px 15px;
     width: 100%;
 }
 
 .buttons > button.active {
-    background-color: grey;
+    background-color: darkgray;
+    color: white;
 }
 
 .buttons > button:hover,
 input[type ="color"]:hover {
-transform: scale(1.07);
+transform: scale(1.03);
 }
 
 
