@@ -7,9 +7,13 @@ createGrid();
 
 
 let mouseDown = false;
-document.body.onmousedown = () => {mouseDown = true;}
+document.body.onmousedown = () => mouseDown = true;
 document.body.onmouseup = () => mouseDown = false;
-slider.onmousemove = () => updateSliderLabel();
+document.body.onmouseup = () => mouseDown = false;
+document.body.onclick = (e) => {
+    console.log(e);
+    }
+
 
 const colorButton = document.querySelector('.color-button');
 const rainbowButton = document.querySelector('.rainbow-button');
@@ -67,6 +71,7 @@ function clearGrid () {
     })
 }
 
+slider.onmousemove = () => updateSliderLabel();
 
 function updateSliderLabel () {
     let sliderValue = slider.value;
