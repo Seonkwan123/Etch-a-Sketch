@@ -2,17 +2,14 @@ const slider = document.querySelector("input[type='range'")
 const sliderLabel = document.querySelector('label')
 const gridBox = document.querySelector('.grid-box')
 const colorSelector = document.querySelector('#color-selector');
-// initially invoke function to generate div inside grid
-createGrid();
 
 
 let mouseDown = false;
 document.body.onmousedown = () => mouseDown = true;
-document.body.onmouseup = () => mouseDown = false;
-document.body.onmouseup = () => mouseDown = false;
-document.body.onclick = (e) => {
-    console.log(e);
-    }
+document.body.onmouseup = () => mouseDown = false;  
+document.body.oncontextmenu = () => mouseDown = false; 
+// initially invoke function to generate div inside grid
+createGrid();
 
 
 const colorButton = document.querySelector('.color-button');
@@ -24,6 +21,7 @@ colorButton.onclick = (e) => selectButton(e.target.className)
 rainbowButton.onclick = (e) => selectButton(e.target.className)
 eraserButton.onclick = (e) => selectButton(e.target.className)
 clearButton.onclick = (e) => selectButton(e.target.className)
+slider.onmousemove = () => updateSliderLabel();
 
 let defaultSelectedButton = colorButton.className;
 let selectedButton = defaultSelectedButton;
@@ -71,7 +69,6 @@ function clearGrid () {
     })
 }
 
-slider.onmousemove = () => updateSliderLabel();
 
 function updateSliderLabel () {
     let sliderValue = slider.value;
@@ -92,11 +89,12 @@ for(let i = 0; i < (sliderValue ** 2); i++){
     gridBox.appendChild(grid);
     let gridElements = document.querySelectorAll('.grid-element');
     grid.addEventListener('mouseover', draw)
+    grid.addEventListener('mousedown', draw)
     }
 }
 
 function draw (e) {
-    if (!mouseDown)  return;
+    if (!mouseDown && e.type == 'mouseover') return;
     else if (selectedButton === 'color-button') {
         e.target.style.background = colorSelector.value;
     } else if(selectedButton === 'rainbow-button') {
